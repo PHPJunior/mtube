@@ -45,18 +45,18 @@ php artisan websockets:serve
 ```
 
 ## Todo
-- [x] Tus Server/Client
-- [x] Channel Management
-- [x] Channel Branding
-- [x] Un/Subscribe Channel
+- [x] ~~Tus Server/Client~~
+- [x] ~~Channel Management~~
+- [x] ~~Channel Branding~~
+- [x] ~~Un/Subscribe Channel~~
 - [ ] Realtime Un/Subscribe View
-- [x] Video Management
-- [x] Transcode Video
-- [x] Dis/Like Video
-- [x] Video View Count
-- [x] Video Comments
-- [x] Video Thumbnails
-- [x] Video Settings
+- [x] ~~Video Management~~
+- [x] ~~Transcode Video~~
+- [x] ~~Dis/Like Video~~
+- [x] ~~Video View Count~~
+- [x] ~~Video Comments~~
+- [x] ~~Video Thumbnails~~
+- [x] ~~Video Settings~~
 - [ ] Video Player - Google IMA Pre Roll Plugin
 - [ ] Video Player - VAST Ad Plugin
 - [ ] Admin Panel
