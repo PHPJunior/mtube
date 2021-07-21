@@ -56,6 +56,8 @@ php artisan websockets:serve
 - [x] Video Comments
 - [x] Video Thumbnails
 - [x] Video Settings
+- [ ] Video Player - Google IMA Pre Roll Plugin
+- [ ] Video Player - VAST Ad Plugin
 - [ ] Admin Panel
 
 ## License
