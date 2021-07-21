@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Components;
 
+use App\Events\LiveCount;
 use App\Models\Channel\Channel;
 use Livewire\Component;
 
@@ -36,11 +37,13 @@ class SubscribeButton extends Component
     {
         auth()->user()->subscribe($this->channel);
         $this->emit('channelSubscribed');
+        broadcast(new LiveCount($this->channel->slug));
     }
 
     public function unsubscribeChannel()
     {
         auth()->user()->unsubscribe($this->channel);
         $this->emit('channelUnsubscribed');
+        broadcast(new LiveCount($this->channel->slug));
     }
 }

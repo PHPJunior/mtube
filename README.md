@@ -55,8 +55,10 @@ FFPROBE_BINARIES=
 ]
 ```
 Start Laravel Websockets Server
+
 ```
 php artisan websockets:serve
+php artisan queue:work
 ```
 
 ## Todo
@@ -64,7 +66,7 @@ php artisan websockets:serve
 - [x] ~~Channel Management~~
 - [x] ~~Channel Branding~~
 - [x] ~~Un/Subscribe Channel~~
-- [ ] Realtime Un/Subscribe View
+- [x] ~~Realtime Un/Subscribe View~~
 - [x] ~~Video Management~~
 - [x] ~~Transcode Video~~
 - [x] ~~Dis/Like Video~~
@@ -72,6 +74,7 @@ php artisan websockets:serve
 - [x] ~~Video Comments~~
 - [x] ~~Video Thumbnails~~
 - [x] ~~Video Settings~~
+- [ ] Video Playlists
 - [ ] Video Player - Google IMA Pre Roll Plugin
 - [ ] Video Player - VAST Ad Plugin
 - [ ] Admin Panel

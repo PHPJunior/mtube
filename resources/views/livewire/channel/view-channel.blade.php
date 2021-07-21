@@ -41,6 +41,7 @@
             <ul class='flex cursor-pointer'>
                 <li wire:click="updateTab('contents')" class='py-2 px-6 @if($tab == 'contents') bg-white border-b text-indigo-500 @endif'>{{ __('Contents') }}</li>
                 <li wire:click="updateTab('branding')" class='py-2 px-6 @if($tab == 'branding') bg-white border-b text-indigo-500 @endif'>{{ __('Branding') }}</li>
+                <li wire:click="updateTab('realtime')" class='py-2 px-6 @if($tab == 'realtime') bg-white border-b text-indigo-500 @endif'>{{ __('Realtime Subscribers') }}</li>
             </ul>
             <div wire:loading wire:target="updateTab">
                 <i class="fas fa-spin fa-spinner"></i>
@@ -221,6 +222,10 @@
                     @endif
                 </div>
             </div>
+        @endif
+
+        @if($tab == 'realtime')
+            @livewire('channel.partial.channel-analytics', ['channel_id' => $channel->id ])
         @endif
     </div>
 </div>

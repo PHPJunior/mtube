@@ -20,3 +20,7 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
 Broadcast::channel('progress', function ($user) {
     return true;
 });
+
+Broadcast::channel('live.count.{channel}', function ($user, $channel) {
+    return (int) $user->id === (int) \App\Models\Channel\Channel::where('slug', $channel)->first()->owner_id;
+});
