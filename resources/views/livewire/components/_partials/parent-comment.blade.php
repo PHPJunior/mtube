@@ -5,7 +5,7 @@
              alt=""
         >
     </div>
-    <div class="flex-1 @if($child) bg-gray-100 @endif border rounded-lg px-2 py-2 sm:px-4 sm:py-4 leading-relaxed">
+    <div class="flex-1 border rounded-lg px-2 py-2 sm:px-4 sm:py-4 leading-relaxed">
         <div class="flex justify-between items-center">
             <div>
                 <strong class="text-sm @if(!$comment->commenter->email) md:text-xs bg-gray-300 rounded p-1 @else md:text-md @endif">{{ $comment->commenter->name }}</strong> <span class="text-xs text-gray-400">{{ $comment->created_at->format('g:i A') }}</span>
