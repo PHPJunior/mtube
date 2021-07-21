@@ -1,5 +1,5 @@
 <p align="center">
-<img src="/images/logo.png" width="300">
+<img src="https://raw.githubusercontent.com/PHPJunior/mtube/master/public/images/logo.png?token=ADJUEVLKSZHIU3CH44SPD6DA66HA4" width="300">
 </p>
 
 #mTube : Simple Video Sharing Platform
