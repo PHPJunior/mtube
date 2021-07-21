@@ -2,58 +2,61 @@
 <img src="https://raw.githubusercontent.com/PHPJunior/mtube/master/public/images/logo.png?token=ADJUEVLKSZHIU3CH44SPD6DA66HA4" width="300">
 </p>
 
-#mTube : Simple Video Sharing Platform
+## About mTube
+mTube is a simple video sharing platform built with Laravel. Create personal channel share videos online with friends and family.
 
-## About Laravel
+## Requirements
+- FFMpeg
+- PHP 7.3/8
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Installations
+```
+composer install
+```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Edit `.env` file and `config/site.php`
+``` 
+PUSHER_APP_ID=
+PUSHER_APP_KEY=
+PUSHER_APP_SECRET=
+PUSHER_APP_CLUSTER=
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
 
-## Learning Laravel
+LARAVEL_WEBSOCKETS_SSL_LOCAL_CERT=
+LARAVEL_WEBSOCKETS_SSL_LOCAL_PK=
+LARAVEL_WEBSOCKETS_SSL_PASSPHRASE=
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+FFMPEG_BINARIES=
+FFPROBE_BINARIES=
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+``` 
+[
+    'converted_file_driver' => 'public',
+    'hls_segment_size' => 10,
+    'frame_from_seconds' => 3
+]
+```
+Start Laravel Websockets Server
+```
+php artisan websockets:serve
+```
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Todo
+- [x] Channel Management
+- [x] Channel Branding
+- [x] Un/Subscribe Channel
+- [ ] Realtime Un/Subscribe View
+- [x] Video Management
+- [x] Transcode Video
+- [x] Dis/Like Video
+- [x] Video View Count
+- [x] Video Comments
+- [x] Video Thumbnails
+- [x] Video Settings
+- [ ] Admin Panel
 
 ## License
-
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
