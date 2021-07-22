@@ -5,11 +5,11 @@
     <x-slot name="content">
         <div class="flex justify-between items-center px-3">
             <ul class='flex cursor-pointer'>
-                <li wire:click="updateTab('details')" class='py-2 px-6 @if($tab == 'details') bg-white border-b text-indigo-500 @endif'>{{ __('Details') }}</li>
-                <li wire:click="updateTab('analytics')" class='py-2 px-6 @if($tab == 'analytics') bg-white border-b text-indigo-500 @endif'>{{ __('Analytics') }}</li>
-                <li wire:click="updateTab('comments')" class='py-2 px-6 @if($tab == 'comments') bg-white border-b text-indigo-500 @endif'>{{ __('Comments') }}</li>
-                <li wire:click="updateTab('thumbnails')" class='py-2 px-6 @if($tab == 'thumbnails') bg-white border-b text-indigo-500 @endif'>{{ __('Thumbnails') }}</li>
-                <li wire:click="updateTab('settings')" class='py-2 px-6 @if($tab == 'settings') bg-white border-b text-indigo-500 @endif'>{{ __('Settings') }}</li>
+                <li wire:click="updateTab('details')" class='py-2 pr-10 @if($tab == 'details') bg-white border-b text-indigo-500 @endif'>{{ __('Details') }}</li>
+                <li wire:click="updateTab('analytics')" class='py-2 pr-10 @if($tab == 'analytics') bg-white border-b text-indigo-500 @endif'>{{ __('Analytics') }}</li>
+                <li wire:click="updateTab('comments')" class='py-2 pr-10 @if($tab == 'comments') bg-white border-b text-indigo-500 @endif'>{{ __('Comments') }}</li>
+                <li wire:click="updateTab('thumbnails')" class='py-2 pr-10 @if($tab == 'thumbnails') bg-white border-b text-indigo-500 @endif'>{{ __('Thumbnails') }}</li>
+                <li wire:click="updateTab('settings')" class='py-2 pr-10 @if($tab == 'settings') bg-white border-b text-indigo-500 @endif'>{{ __('Settings') }}</li>
             </ul>
             <div wire:loading wire:target="updateTab">
                 <i class="fas fa-spin fa-spinner"></i>

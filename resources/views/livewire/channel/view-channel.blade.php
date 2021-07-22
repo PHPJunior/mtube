@@ -37,11 +37,11 @@
     </div>
 
     <div class="mt-6">
-        <div class="flex justify-between items-center px-3 mb-3">
+        <div class="flex justify-between items-center mb-3">
             <ul class='flex cursor-pointer'>
-                <li wire:click="updateTab('contents')" class='py-2 px-6 @if($tab == 'contents') bg-white border-b text-indigo-500 @endif'>{{ __('Contents') }}</li>
-                <li wire:click="updateTab('branding')" class='py-2 px-6 @if($tab == 'branding') bg-white border-b text-indigo-500 @endif'>{{ __('Branding') }}</li>
-                <li wire:click="updateTab('realtime')" class='py-2 px-6 @if($tab == 'realtime') bg-white border-b text-indigo-500 @endif'>{{ __('Realtime Subscribers') }}</li>
+                <li wire:click="updateTab('contents')" class='py-2 pr-12 @if($tab == 'contents') border-b text-indigo-500 @endif'>{{ __('Contents') }}</li>
+                <li wire:click="updateTab('branding')" class='py-2 pr-12 @if($tab == 'branding') border-b text-indigo-500 @endif'>{{ __('Branding') }}</li>
+                <li wire:click="updateTab('realtime')" class='py-2 pr-12 @if($tab == 'realtime') border-b text-indigo-500 @endif'>{{ __('Realtime Subscribers') }}</li>
             </ul>
             <div wire:loading wire:target="updateTab">
                 <i class="fas fa-spin fa-spinner"></i>
