@@ -77,6 +77,7 @@ php artisan queue:work
 - [ ] Video Playlists
 - [ ] Video Player - Google IMA Pre Roll Plugin
 - [ ] Video Player - VAST Ad Plugin
+- [ ] User Notification
 - [ ] Admin Panel
 
 ## Credits
