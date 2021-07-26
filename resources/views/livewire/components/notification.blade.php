@@ -23,11 +23,15 @@
                             @case('comment')
                             commented on your video "<span class="font-bold text-blue-500 truncate">{{ $notification->data['on']['name'] }}</span>"
                             @break
+                        
                             @case('reply')
                             replied to your comment on "<span class="font-bold text-blue-500 truncate">{{ $notification->data['on']['comment'] }}</span>"
                             @break
+
                             @case('subscribed')
                             subscribed your channel "<span class="font-bold text-blue-500 truncate">{{ $notification->data['on']['name'] }}</span>"
+                            @break
+
                             @case('liked')
                             liked your video "<span class="font-bold text-blue-500 truncate">{{ $notification->data['on']['name'] }}</span>"
                             @break
