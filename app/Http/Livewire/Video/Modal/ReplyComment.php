@@ -2,8 +2,11 @@
 
 namespace App\Http\Livewire\Video\Modal;
 
+use App\Events\DynamicChannel;
 use App\Models\Channel\Channel;
 use App\Models\Channel\Comment;
+use App\Models\Channel\Video;
+use App\Notifications\SendNotification;
 use Livewire\Component;
 use LivewireUI\Modal\ModalComponent;
 
@@ -44,6 +47,20 @@ class ReplyComment extends ModalComponent
         $rc->commentable()->associate($this->p_comment->commentable);
         $rc->comment = $validated['message'];
         $rc->save();
+
+        $model = get_class($this->p_comment->commenter) == Channel::class ? $this->p_comment->commenter->owner : $this->p_comment->commenter;
+
+        if ($model->id != auth()->user()->id)
+        {
+            $model->notify(new SendNotification([
+                'type' => 'reply',
+                'on' => $this->p_comment,
+                'by' => $commenter,
+                'media_id' => $this->p_comment->commentable->media_id
+            ]));
+        }
+
+        broadcast(new DynamicChannel("{$this->p_comment->commentable->media_id}.video.comments"));
 
         $this->message = '';
         $this->emit('commentCreated');

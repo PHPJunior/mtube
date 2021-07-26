@@ -1,6 +1,9 @@
 <?php
 
 use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
 
 if (!function_exists('get_current_route_name')) {
     /**
@@ -110,5 +113,21 @@ if (! function_exists('gravatar')) {
     {
         $hash =  md5(strtolower(trim( $value)));
         return "https://www.gravatar.com/avatar/{$hash}?s={$size}&d=monsterid";
+    }
+}
+
+if (! function_exists('paginate')) {
+    /**
+     * @param $items
+     * @param int $perPage
+     * @param null $page
+     * @param array $options
+     * @return LengthAwarePaginator
+     */
+    function paginate($items, $perPage = 15, $page = null, $options = [])
+    {
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
     }
 }

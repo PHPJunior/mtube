@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire\Components;
 
+use App\Events\DynamicChannel;
 use App\Models\Channel\Video;
+use App\Notifications\SendNotification;
 use Livewire\Component;
 
 class LikeDislikeButton extends Component
@@ -10,10 +12,14 @@ class LikeDislikeButton extends Component
     public $video_id;
     public $video;
 
-    protected $listeners = [
-        'videoLiked' => 'getData',
-        'videoDisliked' => 'getData',
-    ];
+    protected function getListeners()
+    {
+        return [
+            'videoLiked' => 'getData',
+            'videoDisliked' => 'getData',
+            "echo:{$this->video->media_id}.video.liked,DynamicChannel" => 'getData'
+        ];
+    }
 
     public function mount()
     {
@@ -32,8 +38,17 @@ class LikeDislikeButton extends Component
             auth()->user()->cancelVote($this->video);
         }else{
             auth()->user()->upVote($this->video);
+            if ($this->video->channel->owner->id != auth()->user()->id)
+            {
+                $this->video->channel->owner->notify(new SendNotification([
+                    'type' => 'liked',
+                    'on' => $this->video,
+                    'by' => auth()->user(),
+                ]));
+            }
         }
         $this->emit('videoLiked');
+        broadcast(new DynamicChannel("{$this->video->media_id}.video.liked"));
     }
 
     public function dislikeVideo()
@@ -45,6 +60,7 @@ class LikeDislikeButton extends Component
             auth()->user()->downVote($this->video);
         }
         $this->emit('videoDisliked');
+        broadcast(new DynamicChannel("{$this->video->media_id}.video.liked"));
     }
 
     public function render()

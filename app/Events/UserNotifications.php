@@ -11,20 +11,20 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class VideoProgress implements ShouldBroadcastNow
+class UserNotifications implements ShouldBroadcastNow
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $id;
+    public $user;
 
     /**
      * Create a new event instance.
      *
-     * @return void
+     * @param $user
      */
-    public function __construct($id)
+    public function __construct($user)
     {
-        $this->id = $id;
+        $this->user = $user;
     }
 
     /**
@@ -34,6 +34,6 @@ class VideoProgress implements ShouldBroadcastNow
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('video.progress.'.$this->id);
+        return new PrivateChannel('user.notifications.'. $this->user->id);
     }
 }

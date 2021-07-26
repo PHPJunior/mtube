@@ -14,10 +14,14 @@ class ChannelProfile extends Component
     public $picture;
     public $count;
 
-    protected $listeners = [
-        'channelSubscribed' => 'getData',
-        'channelUnsubscribed' => 'getData',
-    ];
+    public function getListeners()
+    {
+        return [
+            'channelSubscribed' => 'getData',
+            'channelUnsubscribed' => 'getData',
+            "echo:{$this->channel->slug}.channel.subscribed,DynamicChannel" => 'getData'
+        ];
+    }
 
     public function mount()
     {

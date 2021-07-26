@@ -17,10 +17,14 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
 
-Broadcast::channel('progress', function ($user) {
-    return true;
-});
-
 Broadcast::channel('live.count.{channel}', function ($user, $channel) {
     return (int) $user->id === (int) \App\Models\Channel\Channel::where('slug', $channel)->first()->owner_id;
+});
+
+Broadcast::channel('video.progress.{video}', function ($user, $video) {
+    return (int) $user->id === (int) \App\Models\Channel\Channel::where('id', $video)->first()->owner_id;
+});
+
+Broadcast::channel('user.notifications.{id}', function ($user, $id) {
+    return (int) $user->id === (int) $id;
 });

@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire\Components;
 
+use App\Events\DynamicChannel;
 use App\Models\Channel\Video;
+use App\Notifications\SendNotification;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -18,12 +20,16 @@ class Comment extends Component
 
     public $perPage = 5;
 
-    protected $listeners = [
-        'commentCreated' => 'getData',
-        'commentDeleted' => 'getData',
-        'commentUpdated' => 'getData',
-        'settingsUpdated' => 'getData'
-    ];
+    protected function getListeners()
+    {
+        return [
+            'commentCreated' => 'getData',
+            'commentDeleted' => 'getData',
+            'commentUpdated' => 'getData',
+            'settingsUpdated' => 'getData',
+            "echo:{$this->video->media_id}.video.comments,DynamicChannel" => 'getData'
+        ];
+    }
 
     public function mount()
     {
@@ -51,6 +57,18 @@ class Comment extends Component
         $comment->commentable()->associate($this->video);
         $comment->comment = $validated['comment'];
         $comment->save();
+
+        if ($this->video->channel->owner->id != auth()->user()->id)
+        {
+            $this->video->channel->owner->notify(new SendNotification([
+                'type' => 'comment',
+                'on' => $this->video,
+                'by' => $this->commenter,
+                'media_id' => $this->video->media_id
+            ]));
+        }
+
+        broadcast(new DynamicChannel("{$this->video->media_id}.video.comments"));
 
         $this->comment = '';
         $this->emit('commentCreated');

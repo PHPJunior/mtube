@@ -2,8 +2,10 @@
 
 namespace App\Http\Livewire\Components;
 
+use App\Events\DynamicChannel;
 use App\Events\LiveCount;
 use App\Models\Channel\Channel;
+use App\Notifications\SendNotification;
 use Livewire\Component;
 
 class SubscribeButton extends Component
@@ -38,6 +40,15 @@ class SubscribeButton extends Component
         auth()->user()->subscribe($this->channel);
         $this->emit('channelSubscribed');
         broadcast(new LiveCount($this->channel->slug));
+        broadcast(new DynamicChannel("{$this->channel->slug}.channel.subscribed"));
+        if ($this->channel->owner->id != auth()->user()->id)
+        {
+            $this->channel->owner->notify(new SendNotification([
+                'type' => 'subscribed',
+                'on' => $this->channel,
+                'by' => auth()->user(),
+            ]));
+        }
     }
 
     public function unsubscribeChannel()
@@ -45,5 +56,6 @@ class SubscribeButton extends Component
         auth()->user()->unsubscribe($this->channel);
         $this->emit('channelUnsubscribed');
         broadcast(new LiveCount($this->channel->slug));
+        broadcast(new DynamicChannel("{$this->channel->slug}.channel.subscribed"));
     }
 }

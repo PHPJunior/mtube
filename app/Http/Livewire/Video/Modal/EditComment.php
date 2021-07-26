@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Video\Modal;
 
+use App\Events\DynamicChannel;
 use App\Models\Channel\Comment;
 use Livewire\Component;
 use LivewireUI\Modal\ModalComponent;
@@ -36,6 +37,9 @@ class EditComment extends ModalComponent
         $this->comment->update([
             'comment' => $validated['message']
         ]);
+
+        broadcast(new DynamicChannel("{$this->comment->commentable->media_id}.video.comments"));
+
         $this->emit('commentUpdated');
         $this->closeModal();
     }

@@ -14,16 +14,19 @@ class VideosTable extends DataTableComponent
 {
     public $channel_id;
 
-    protected $listeners = [
-        'videoUploaded' => '$refresh',
-        'videoDeleted' => '$refresh',
-        'videoUpdated' => '$refresh',
-        'echo:progress,VideoProgress' => '$refresh'
-    ];
-
     public array $bulkActions = [
         'restartTranscoding' => 'Restart Transcoding',
     ];
+
+    protected function getListeners()
+    {
+        return [
+            'videoUploaded' => '$refresh',
+            'videoDeleted' => '$refresh',
+            'videoUpdated' => '$refresh',
+            "echo-private:video.progress.{$this->channel_id},VideoProgress" => '$refresh'
+        ];
+    }
 
     public function restartTranscoding()
     {

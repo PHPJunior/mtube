@@ -67,7 +67,7 @@ class ConvertVideoForStreaming extends Command
                         'progress' => $progress
                     ]);
                     $this->info("Progress : {$progress}%");
-                    broadcast(new VideoProgress());
+                    broadcast(new VideoProgress($video->channel->id));
                 })
                 ->toDisk($video->disk)
                 ->save($name)
@@ -82,7 +82,7 @@ class ConvertVideoForStreaming extends Command
                 'progress' => 100,
                 'status' => 'ready'
             ]);
-            broadcast(new VideoProgress());
+            broadcast(new VideoProgress($video->channel->id));
             $this->info('Done!!');
         }catch (\Exception $e) {
             $video->update([

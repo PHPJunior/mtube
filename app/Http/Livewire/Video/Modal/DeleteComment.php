@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Video\Modal;
 
+use App\Events\DynamicChannel;
 use App\Models\Channel\Comment;
 use Livewire\Component;
 use LivewireUI\Modal\ModalComponent;
@@ -22,8 +23,13 @@ class DeleteComment extends ModalComponent
 
     public function submit()
     {
-        Comment::destroy($this->comment_id);
+        $comment = Comment::find($this->comment_id);
+        $comment->delete();
+
+        broadcast(new DynamicChannel("{$comment->commentable->media_id}.video.comments"));
+
         $this->emit('commentDeleted');
+
         $this->closeModal();
     }
 }

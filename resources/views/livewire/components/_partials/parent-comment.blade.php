@@ -11,7 +11,7 @@
                 <strong class="text-sm @if(!$comment->commenter->email) md:text-xs bg-gray-300 rounded p-1 @else md:text-md @endif">{{ $comment->commenter->name }}</strong> <span class="text-xs text-gray-400">{{ $comment->created_at->format('g:i A') }}</span>
             </div>
             @auth
-                @if($comment->commenter->id == auth()->user()->id || $owner)
+                @if(($comment->commenter->id == auth()->user()->id && $comment->commenter->email) || $owner)
                     <div class="flex justify-between items-center">
                         <a wire:click="$emit('openModal','video.modal.edit-comment', {{ json_encode(["comment_id" => $comment->id]) }})" class="cursor-pointer text-blue-600 text-sm md:text-md font-medium hover:text-blue-900 mr-2">Edit</a>
                         <a wire:click="$emit('openModal','video.modal.delete-comment', {{ json_encode(["comment_id" => $comment->id]) }})" class="cursor-pointer text-red-600 text-sm md:text-md font-medium hover:text-red-900">Delete</a>
