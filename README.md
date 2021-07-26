@@ -84,7 +84,7 @@ php artisan queue:work
 - All Contributors
 
 ## License
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The MIT License [MIT license](https://opensource.org/licenses/MIT). Please see License File for more information.
 
 ## Screenshots
 ![screenshot 1](art/1.png)
