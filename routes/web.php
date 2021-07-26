@@ -26,13 +26,13 @@ Route::get('/test', function (Request $request) {
 Route::view('/', 'site.page.home')->name('home');
 Route::get('/watch', function (Request $request) {
     $video = Video::where('media_id', $request->get('v'))->first();
-//    if (auth()->check())
-//    {
-//        auth()->user()->hasSubscribed($video->channel);
-//        views($video)->collection(auth()->user()->hasSubscribed($video->channel) ? 'subscribed': 'unsubscribed')->record();
-//    }else{
-//        views($video)->collection('unsubscribed')->record();
-//    }
+    if (auth()->check())
+    {
+        auth()->user()->hasSubscribed($video->channel);
+        views($video)->collection(auth()->user()->hasSubscribed($video->channel) ? 'subscribed': 'unsubscribed')->record();
+    }else{
+        views($video)->collection('unsubscribed')->record();
+    }
     return view('site.page.watch')->with([
         'video' => $video
     ]);
