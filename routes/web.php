@@ -17,12 +17,6 @@ use Illuminate\Support\Facades\Storage;
 |
 */
 
-Route::get('/test', function (Request $request) {
-    $downloader = new \App\Services\Downloader();
-    $downloader->setSpeed(100);
-    $downloader->download();
-})->name('download');
-
 Route::view('/', 'site.page.home')->name('home');
 Route::get('/watch', function (Request $request) {
     $video = Video::where('media_id', $request->get('v'))->first();
