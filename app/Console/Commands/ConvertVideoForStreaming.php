@@ -6,6 +6,7 @@ use App\Events\VideoProgress;
 use App\Models\Channel\Video;
 use FFMpeg\Format\Video\X264;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
 
 class ConvertVideoForStreaming extends Command
@@ -85,6 +86,7 @@ class ConvertVideoForStreaming extends Command
             broadcast(new VideoProgress($video->channel->id));
             $this->info('Done!!');
         }catch (\Exception $e) {
+            Log::error($e->getMessage());
             $video->update([
                 'status' => 'failed'
             ]);

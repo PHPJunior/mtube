@@ -9,6 +9,7 @@
         "ankitpokhrel/tus-php": "^2.1",
         "beyondcode/laravel-websockets": "^1.12",
         "cklmercer/laravel-model-settings": "^8.1",
+        "cybercog/laravel-ban": "^4.6",
         "cyrildewit/eloquent-viewable": "^6.0",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",

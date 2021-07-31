@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('body')
-    @include('layouts.includes.navigation')
+    @include('layouts.includes.frontend.navigation')
 
     @yield('content')
 
@@ -9,5 +9,5 @@
         {{ $slot }}
     @endisset
 
-    @include('layouts.includes.footer')
+    @include('layouts.includes.frontend.footer')
 @endsection

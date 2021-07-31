@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\PageController;
+use App\Http\Controllers\Frontend\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,4 +19,8 @@ Route::get('/watch', [PageController::class, 'watch'])->name('watch');
 Route::get('/download', [PageController::class, 'download'])->name('download');
 Route::get('/channel/{slug}', [PageController::class, 'channel'])->name('channel');
 
-includeRouteFiles(__DIR__.'/site');
+includeRouteFiles(__DIR__.'/frontend');
+
+Route::group(['middleware' => 'backend', 'as' => 'admin.', 'prefix' => 'admin'], function () {
+    includeRouteFiles(__DIR__.'/backend');
+});

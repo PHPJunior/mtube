@@ -10,10 +10,12 @@ use Illuminate\Notifications\Notifiable;
 use Overtrue\LaravelLike\Traits\Liker;
 use Overtrue\LaravelSubscribe\Traits\Subscriber;
 use Jcc\LaravelVote\Traits\Voter;
+use Cog\Contracts\Ban\Bannable as BannableContract;
+use Cog\Laravel\Ban\Traits\Bannable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements BannableContract
 {
-    use HasFactory, Notifiable, UserRelationship, Subscriber, Liker, Voter;
+    use HasFactory, Notifiable, UserRelationship, Subscriber, Liker, Voter, Bannable;
 
     /**
      * The attributes that are mass assignable.
