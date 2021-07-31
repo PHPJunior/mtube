@@ -23,6 +23,16 @@
             <li class="py-3 rounded mt-2">
                 <a href="#" class="font-thin">{{ __('Channel') }}</a>
             </li>
+            <li class="w-full items-center pl-4 {{ active(['admin.channel'], 'border-l-2 border-gray-800') }}">
+                <a class="text-gray-800 hover:text-red-600 text-xs uppercase py-3 font-bold block" href="{{ route('admin.channel')}}">
+                    <i class="fas fa-list opacity-75 mr-2 text-sm"></i> {{ __('Channels') }}
+                </a>
+            </li>
+            <li class="w-full items-center pl-4 {{ active(['admin.video'], 'border-l-2 border-gray-800') }}">
+                <a class="text-gray-800 hover:text-red-600 text-xs uppercase py-3 font-bold block" href="{{ route('admin.video')}}">
+                    <i class="fas fa-video opacity-75 mr-2 text-sm"></i> {{ __('Videos') }}
+                </a>
+            </li>
             <li class="w-full items-center pl-4 {{ active(['admin.user'], 'border-l-2 border-gray-800') }}">
                 <a class="text-gray-800 hover:text-red-600 text-xs uppercase py-3 font-bold block" href="{{ route('admin.user')}}">
                     <i class="fas fa-users opacity-75 mr-2 text-sm"></i> {{ __('Users') }}
@@ -34,6 +44,11 @@
             <li class="w-full items-center pl-4 {{ active(['admin.admin'], 'border-l-2 border-gray-800') }}">
                 <a class="text-gray-800 hover:text-red-600 text-xs uppercase py-3 font-bold block" href="{{ route('admin.admin')}}">
                     <i class="fas fa-user-plus opacity-75 mr-2 text-sm"></i> {{ __('Admins') }}
+                </a>
+            </li>
+            <li class="w-full items-center pl-4 {{ active(['admin.settings'], 'border-l-2 border-gray-800') }}">
+                <a class="text-gray-800 hover:text-red-600 text-xs uppercase py-3 font-bold block" href="{{ route('admin.settings')}}">
+                    <i class="fas fa-cogs opacity-75 mr-2 text-sm"></i> {{ __('Settings') }}
                 </a>
             </li>
         </ul>

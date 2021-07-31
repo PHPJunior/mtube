@@ -2,30 +2,38 @@
 
 namespace App\Http\Livewire\Backend\Channel\Table;
 
-use App\Models\Channel\Channel;
+use App\Models\Channel\Video;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Livewire\Component;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 
-class ChannelsTable extends DataTableComponent
+class VideosTable extends DataTableComponent
 {
     protected $listeners = [
-        'channelBanned' => '$refresh',
-        'channelUnBanned' => '$refresh'
+        'videoBanned' => '$refresh',
+        'videoUnBanned' => '$refresh'
     ];
 
-    public function rowView(): string
+    public function rowView() : string
     {
-        return 'livewire.backend.channel.table.channels-table';
+        return 'livewire.backend.channel.table.videos-table';
     }
 
     public function columns(): array
     {
         return [
             Column::make(__('ID'), 'id')->sortable(),
-            Column::make(__('Name'), 'name')->sortable(),
+            Column::make(__('Thumbnail'), 'thumbnail'),
+            Column::make(__('Media Id'), 'media_id')
+                ->sortable()
+                ->searchable(),
+            Column::make(__('Name'), 'name')
+                ->sortable()
+                ->searchable(),
+            Column::make(__('Views')),
+            Column::make(__('Likes (vs. Dislikes)')),
             Column::make(__('Is Banned')),
             Column::make(__('Created At'), 'created_at')->sortable(),
             Column::blank(),
@@ -34,6 +42,6 @@ class ChannelsTable extends DataTableComponent
 
     public function query()
     {
-        return Channel::query();
+        return Video::query();
     }
 }

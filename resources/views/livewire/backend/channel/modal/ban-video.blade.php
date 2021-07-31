@@ -1,6 +1,6 @@
 <x-modal>
     <x-slot name="title">
-        <h3 class="text-lg font-medium text-gray-900">{{ __('Ban User') }} : {{ $model->name }}</h3>
+        <h3 class="text-lg font-medium text-gray-900">{{ __('Ban Video') }} : {{ $model->name }}</h3>
     </x-slot>
     <x-slot name="content">
         @include('livewire.backend.channel.modal._partials.ban-form')

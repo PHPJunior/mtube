@@ -3,7 +3,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth,forbid-banned-user'], function () {
     Route::get('/user/dashboard', function () {
         return view('frontend.user.dashboard');
     })->name('user.dashboard');

@@ -20,6 +20,7 @@ mTube is a simple video sharing platform built with Laravel. Create personal cha
 - [Laravel Livewire Tables](https://github.com/rappasoft/laravel-livewire-tables)
 - [Active for Laravel](https://github.com/dwightwatson/active)
 - [Laravel Ban](https://github.com/cybercog/laravel-ban)
+- [Laravel Setting](https://github.com/akaunting/laravel-setting)
 
 ## Requirements
 - FFMpeg
@@ -77,7 +78,6 @@ php artisan queue:work
 - [x] ~~Video Settings~~
 - [ ] Video Playlists
 - [ ] Video Player - Google IMA Pre Roll Plugin
-- [ ] Video Player - VAST Ad Plugin
 - [x] ~~Realtime Notifications ( Dis/Like, Un/Subscribe Channel, Comments )~~
 - [ ] Admin Panel
 - [ ] Companion - Uppy Standalone Server

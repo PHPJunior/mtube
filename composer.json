@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "akaunting/laravel-setting": "^1.2",
         "ankitpokhrel/tus-php": "^2.1",
         "beyondcode/laravel-websockets": "^1.12",
         "cklmercer/laravel-model-settings": "^8.1",
