@@ -63,6 +63,11 @@ php artisan websockets:serve
 php artisan queue:work
 ```
 
+## Create Admin User
+```
+php artisan create:admin
+```
+
 ## Todo
 - [x] ~~Tus Server/Client~~
 - [x] ~~Channel Management~~
