@@ -26,7 +26,7 @@ class LatestVideo extends Component
     public function render()
     {
         return view('livewire.frontend.video.latest-video', [
-            'videos' => Video::where('name', 'like', '%'.$this->search.'%')->where('status', 'ready')->orderBy('created_at', 'desc')->paginate($this->perPage)
+            'videos' => Video::withoutBanned()->where('name', 'like', '%'.$this->search.'%')->where('status', 'ready')->orderBy('created_at', 'desc')->paginate($this->perPage)
         ]);
     }
 }

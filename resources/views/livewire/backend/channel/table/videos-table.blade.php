@@ -60,6 +60,7 @@
 </x-livewire-tables::table.cell>
 <x-livewire-tables::table.cell class="md:table-cell flex justify-end items-center">
     <div>
+        <a wire:click="$emit('openModal', 'backend.channel.modal.view-video', {{ json_encode(["video_id" => $row->id]) }})" class="cursor-pointer font-medium mr-2">View</a>
         @if($row->isBanned())
             <a wire:click="$emit('openModal', 'backend.channel.modal.un-ban-video', {{ json_encode(["video_id" => $row->id]) }})" class="cursor-pointer font-medium mr-2">UnBan</a>
         @else

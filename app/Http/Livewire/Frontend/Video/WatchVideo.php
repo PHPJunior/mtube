@@ -36,7 +36,7 @@ class WatchVideo extends Component
 
     public function render()
     {
-        $upcoming_videos = Video::where('id', '!=', $this->video->id)->where('status', 'ready')->inRandomOrder()->paginate($this->perPage);
+        $upcoming_videos = Video::withoutBanned()->where('id', '!=', $this->video->id)->where('status', 'ready')->inRandomOrder()->paginate($this->perPage);
         $this->next_video = $upcoming_videos->first();
         $this->autoplay = request()->get('autoplay', null) ? 1 : null ;
         $this->view = views($this->video)->unique()->count();

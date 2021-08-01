@@ -92,6 +92,17 @@ return [
         'services.mailgun.domain' => 'mailgun_domain',
         'services.mailgun.secret' => 'mailgun_secret',
         'services.mailgun.endpoint' => 'mailgun_endpoint',
+
+        'site.converted_file_driver' => 'converted_file_driver',
+        'site.hls_segment_size' => 'hls_segment_size',
+        'site.frame_from_seconds' => 'frame_from_seconds',
+
+        'filesystems.disks.s3.key' => 'aws_access_key_id',
+        'filesystems.disks.s3.secret' => 'aws_secret_access_key',
+        'filesystems.disks.s3.region' => 'aws_default_region',
+        'filesystems.disks.s3.bucket' => 'aws_bucket',
+        'filesystems.disks.s3.url' => 'aws_url',
+        'filesystems.disks.s3.endpoint' => 'aws_endpoint',
     ],
 
     /*

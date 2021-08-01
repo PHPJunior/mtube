@@ -33,7 +33,7 @@ class ChannelVideo extends Component
     public function render()
     {
         return view('livewire.frontend.video.channel-video')->with([
-            'videos' => $this->channel->videos()->where('name', 'like', '%'.$this->search.'%')->where('status', 'ready')->orderBy('created_at', 'desc')->paginate($this->perPage)
+            'videos' => $this->channel->videos()->withoutBanned()->where('name', 'like', '%'.$this->search.'%')->where('status', 'ready')->orderBy('created_at', 'desc')->paginate($this->perPage)
         ]);
     }
 }

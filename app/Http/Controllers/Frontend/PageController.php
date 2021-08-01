@@ -29,7 +29,7 @@ class PageController extends Controller
      */
     public function watch(Request $request)
     {
-        $video = Video::where('media_id', $request->get('v'))->first();
+        $video = Video::withoutBanned()->where('media_id', $request->get('v'))->firstOrFail();
         if (auth()->check())
         {
             auth()->user()->hasSubscribed($video->channel);
@@ -48,7 +48,7 @@ class PageController extends Controller
      */
     public function download(Request $request)
     {
-        $video = Video::where('media_id', $request->get('v'))->first();
+        $video = Video::withoutBanned()->where('media_id', $request->get('v'))->firstOrFail();
         if ($video->settings()->get('allow_download', false))
         {
             $headers = [
@@ -68,7 +68,7 @@ class PageController extends Controller
     public function channel($slug, Request $request)
     {
         return view('frontend.page.channel')->with([
-            'channel' => Channel::where('slug', $slug)->first()
+            'channel' => Channel::where('slug', $slug)->firstOrFail()
         ]);
     }
 }
