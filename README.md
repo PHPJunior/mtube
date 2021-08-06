@@ -47,6 +47,10 @@ LARAVEL_WEBSOCKETS_SSL_PASSPHRASE=
 
 FFMPEG_BINARIES=
 FFPROBE_BINARIES=
+
+RTMP_HOST=http://localhost:3000
+UPPY_COMPANION_URL=http://localhost:3020/companion
+RTMP_SERVER_URL=rtmp://localhost/live
 ```
 
 ``` 
@@ -56,11 +60,14 @@ FFPROBE_BINARIES=
     'frame_from_seconds' => 3
 ]
 ```
-Start Laravel Websockets Server
+Start Laravel Websockets Server, RTMP Server, Uppy Companion Server
 
 ```
 php artisan websockets:serve
 php artisan queue:work
+
+npm run rtmp-server
+npm run companion-server
 ```
 
 ## Create Admin User
@@ -84,8 +91,8 @@ php artisan create:admin
 - [ ] Video Playlists
 - [ ] Video Player - Google IMA Pre Roll Plugin
 - [x] ~~Realtime Notifications ( Dis/Like, Un/Subscribe Channel, Comments )~~
-- [ ] Admin Panel
-- [ ] Companion - Uppy Standalone Server
+- [x] ~~Admin Panel~~
+- [x] ~~Companion - Uppy Standalone Server~~
 
 ## Credits
 - All Contributors

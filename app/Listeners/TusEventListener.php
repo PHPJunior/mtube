@@ -35,7 +35,8 @@ class TusEventListener
                 'duration' => $duration,
                 'status' => 'notready',
                 'disk' => $filesystem,
-                'tus_id' => $tus
+                'tus_id' => $tus,
+                'type' => 'upload',
             ]);
         }catch (\Exception $e) {
             Log::error($e->getMessage());

@@ -32,6 +32,7 @@
         "predis/predis": "^1.1",
         "pusher/pusher-php-server": "~3.0",
         "rappasoft/laravel-livewire-tables": "^1.10",
+        "spatie/laravel-schemaless-attributes": "^1.8",
         "symfony/process": "^5.3",
         "watson/active": "^6.0"
     },

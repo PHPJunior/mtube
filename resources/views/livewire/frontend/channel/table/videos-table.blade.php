@@ -27,6 +27,11 @@
 </x-livewire-tables::table.cell>
 <x-livewire-tables::table.cell class="md:table-cell">
     <div>
+        {{ $row->type }}
+    </div>
+</x-livewire-tables::table.cell>
+<x-livewire-tables::table.cell class="md:table-cell">
+    <div>
         @if($row->status == 'ready')
             <span class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-indigo-100 bg-indigo-700 rounded">{{ __('Ready') }}</span>
         @elseif($row->status == 'failed')
@@ -55,12 +60,20 @@
         </div>
     </div>
 </x-livewire-tables::table.cell>
+{{--<x-livewire-tables::table.cell class="md:table-cell">--}}
+{{--    <div>--}}
+{{--        {{ optional($row->scheduled_at)->format('F j Y h:i A') }}--}}
+{{--    </div>--}}
+{{--</x-livewire-tables::table.cell>--}}
 <x-livewire-tables::table.cell class="md:table-cell">
     <div>
         {{ $row->created_at->format('F j Y h:i A') }}
     </div>
 </x-livewire-tables::table.cell>
 <x-livewire-tables::table.cell class="md:table-cell flex justify-end items-center">
+    @if( $row->type !== 'upload')
+        <a href="{{ route('user.channels.live', ['channel_id' => $row->channel_id, 'video_id' => $row->id]) }}" class="cursor-pointer font-medium mr-2">Live Now</a>
+    @endif
     <a wire:click="$emit('openModal', 'frontend.channel.modal.view-content', {{ json_encode(["video_id" => $row->id]) }})" class="cursor-pointer font-medium mr-2">View</a>
     <a wire:click="$emit('openModal', 'frontend.channel.modal.edit-content', {{ json_encode(["video_id" => $row->id]) }})" class="cursor-pointer text-blue-600 font-medium hover:text-blue-900 mr-2">Edit</a>
     <a wire:click="$emit('openModal', 'frontend.channel.modal.delete-content', {{ json_encode(["video_id" => $row->id]) }})" class="cursor-pointer text-red-600 font-medium hover:text-red-900">Delete</a>

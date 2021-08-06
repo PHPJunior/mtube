@@ -1,9 +1,8 @@
 <?php
 
-
 use Illuminate\Support\Facades\Route;
 
-Route::group(['middleware' => 'auth,forbid-banned-user'], function () {
+Route::group(['middleware' => ['auth', 'forbid-banned-user']], function () {
     Route::get('/user/dashboard', function () {
         return view('frontend.user.dashboard');
     })->name('user.dashboard');
@@ -21,4 +20,11 @@ Route::group(['middleware' => 'auth,forbid-banned-user'], function () {
             'channel' => auth()->user()->channels()->find($id)
         ]);
     })->name('user.channels.show');
+
+    Route::get('/user/channels/{channel_id}/live/producer/{video_id}', function ($channel_id, $video_id) {
+        return view('frontend.user.channel.live')->with([
+            'channel_id' => $channel_id,
+            'video_id' => $video_id
+        ]);
+    })->name('user.channels.live');
 });

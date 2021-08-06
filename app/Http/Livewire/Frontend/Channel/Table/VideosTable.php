@@ -54,9 +54,11 @@ class VideosTable extends DataTableComponent
             Column::make(__('Name'), 'name')
                 ->sortable()
                 ->searchable(),
+            Column::make(__('Type'), 'type'),
             Column::make(__('Status'), 'status'),
             Column::make(__('Views')),
             Column::make(__('Likes (vs. Dislikes)')),
+//            Column::make(__('Scheduled At'), 'scheduled_at')->sortable(),
             Column::make(__('Created At'), 'created_at')->sortable(),
             Column::blank(),
         ];

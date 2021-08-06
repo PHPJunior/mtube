@@ -13,7 +13,7 @@ class VideoObserver
      */
     public function created(Video $video)
     {
-        dispatch(new StartConvert($video->id));
+        if ($video->type == 'upload') dispatch(new StartConvert($video->id));
     }
 
     /**
