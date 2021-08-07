@@ -22,6 +22,7 @@
         <link rel="stylesheet" href="{{ url(mix('css/app.css')) }}">
         <link rel="stylesheet" href="https://releases.transloadit.com/uppy/v1.30.0/uppy.min.css">
 
+
         @livewireStyles
 
         <style>
@@ -29,9 +30,9 @@
 
         <!-- Scripts -->
         <script src="{{ url(mix('js/app.js')) }}" defer></script>
+
         <!-- Load Uppy JS bundle. -->
         <script src="https://releases.transloadit.com/uppy/v1.30.0/uppy.min.js"></script>
-        <script src="https://releases.transloadit.com/uppy/locales/v1.21.0/ru_RU.min.js"></script>
 
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@clappr/hlsjs-playback@latest/dist/hlsjs-playback.min.js"></script>

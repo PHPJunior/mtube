@@ -57,7 +57,7 @@
         let aspectRatio = 9/16, newWidth = playerElement.parentElement.offsetWidth, newHeight = 2 * Math.round(newWidth * aspectRatio/2);
 
         let player = new Clappr.Player({
-            source: '{{ \Illuminate\Support\Facades\Storage::disk($video->disk)->url($video->streaming_url) }}',
+            source: '{{ $video->video_source }}',
             plugins: [HlsjsPlayback],
             poster: '{{ \Illuminate\Support\Facades\Storage::disk($video->disk)->url($video->thumbnail_url) }}'
         });

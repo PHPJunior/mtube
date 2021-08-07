@@ -36,12 +36,12 @@
     });
     uppy.use(Uppy.Url, {
         target: Uppy.Dashboard,
-        companionUrl: 'https://localhost:3020/companion',
+        companionUrl: '{{ env('UPPY_COMPANION_URL') }}',
     });
     uppy.use(Uppy.Webcam, { target: Uppy.Dashboard, onBeforeSnapshot: () => Promise.resolve(), preferredVideoMimeType: 'video/webm' });
     uppy.use(Uppy.ScreenCapture, { target: Uppy.Dashboard })
     uppy.use(Uppy.Tus, {
-        endpoint: 'https://mtube.test/tus',
+        endpoint: '{{ env('APP_URL') }}/tus',
         resume: false,
         autoRetry: true,
         chunkSize: 2000000,

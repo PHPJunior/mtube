@@ -26,13 +26,21 @@
                 </button>
             </span>
             <span class="sm:ml-3">
-              <button wire:click="$emit('openModal', 'frontend.channel.modal.upload-content', {{ json_encode(["channel_id" => $channel->id]) }})" type="button" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                  <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-                  </svg>
-                {{ __('Upload Content') }}
-              </button>
-        </span>
+                <button wire:click="$emit('openModal', 'frontend.channel.modal.upload-content', {{ json_encode(["channel_id" => $channel->id]) }})" type="button" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                    </svg>
+                    {{ __('Upload Content') }}
+                </button>
+            </span>
+            <span class="sm:ml-3">
+                <button wire:click="$emit('openModal', 'frontend.channel.modal.create-stream', {{ json_encode(["channel_id" => $channel->id]) }})" type="button" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                    <span class="-ml-1 mr-2 h-5 w-5 ">
+                        <i class="fad fa-signal-stream"></i>
+                    </span>
+                    {{ __('Go Live') }}
+                </button>
+            </span>
         </div>
     </div>
 

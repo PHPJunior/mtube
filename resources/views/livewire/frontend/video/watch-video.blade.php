@@ -14,7 +14,7 @@
 @endsection
 
 <div class="flex flex-wrap pt-20 px-4 sm:px-6 lg:px-8">
-    <div class="w-full xl:w-2/3">
+    <div class="w-full @if($video->type == 'upload') xl:w-2/3 @endif">
         <div id="player" class="relative">
             <div class="absolute flex justify-center items-center bg-transparent top-0 right-0 left-0 bottom-0 z-10 p-5 hidden" id="next_video">
                 <div class="bg-white">
@@ -119,6 +119,7 @@
             </div>
         @endif
     </div>
+    @if($video->type == 'upload')
     <div class="w-full xl:w-1/3 xl:pl-6">
         <div class="border-t border-gray-100 mt-3 mb-3 md:mt-6 xl:hidden"></div>
         <div class="flex justify-between items-center mb-3">
@@ -175,6 +176,7 @@
             @endif
         </div>
     </div>
+    @endif
 </div>
 <script>
     function showHideNextVideo() {
@@ -230,7 +232,7 @@
         });
 
         let player = new Clappr.Player({
-            source: '{{ \Illuminate\Support\Facades\Storage::disk($video->disk)->url($video->streaming_url) }}',
+            source: '{{ $video->video_source }}',
             plugins: [HlsjsPlayback, LevelSelector, DownloadVideo],
             poster: '{{ \Illuminate\Support\Facades\Storage::disk($video->disk)->url($video->thumbnail_url) }}',
             width: '100%',

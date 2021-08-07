@@ -7,7 +7,9 @@
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "mix --production"
+        "production": "mix --production",
+        "rtmp-server": "node ./rtmp/server.js",
+        "companion-server": "node ./uppy/server.js"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.2",
@@ -22,5 +24,10 @@
         "sass": "^1.32",
         "sass-loader": "^8.0",
         "tailwindcss": "^2.0"
+    },
+    "dependencies": {
+        "@uppy/companion": "^2.12.1",
+        "dotenv": "^10.0.0",
+        "node-media-server": "^2.3.8"
     }
 }
