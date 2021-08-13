@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Backend\Channel\Modal;
 
 use App\Models\Auth\User;
-use Livewire\Component;
 use LivewireUI\Modal\ModalComponent;
 
 class UnBanUser extends ModalComponent

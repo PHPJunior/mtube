@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Backend\Channel\Modal;
 
 use App\Models\Channel\Channel;
-use Livewire\Component;
 use LivewireUI\Modal\ModalComponent;
 
 class UnBanChannel extends ModalComponent

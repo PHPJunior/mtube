@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Backend\Channel\Modal;
 
 use App\Models\Auth\User;
 use Carbon\Carbon;
-use Livewire\Component;
 use LivewireUI\Modal\ModalComponent;
 
 class BanUser extends ModalComponent

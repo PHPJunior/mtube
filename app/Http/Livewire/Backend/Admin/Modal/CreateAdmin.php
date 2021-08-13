@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Backend\Admin\Modal;
 
 use App\Models\Auth\Admin;
 use Illuminate\Support\Facades\Hash;
-use Livewire\Component;
 use LivewireUI\Modal\ModalComponent;
 
 class CreateAdmin extends ModalComponent

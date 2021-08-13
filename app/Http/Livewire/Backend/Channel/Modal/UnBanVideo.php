@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Backend\Channel\Modal;
 
 use App\Models\Channel\Video;
-use Livewire\Component;
 use LivewireUI\Modal\ModalComponent;
 
 class UnBanVideo extends ModalComponent
