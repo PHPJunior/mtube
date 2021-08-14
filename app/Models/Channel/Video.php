@@ -39,6 +39,6 @@ class Video extends Model implements Viewable, BannableContract
 
     public function getVideoSourceAttribute()
     {
-        return $this->type == 'upload' ? Storage::disk($this->disk)->url($this->streaming_url) : env('RTMP_HOST') . $this->streaming_url;
+        return $this->type == 'upload' ? Storage::disk($this->disk)->url($this->streaming_url) : config('RTMP.HOST') . $this->streaming_url;
     }
 }
