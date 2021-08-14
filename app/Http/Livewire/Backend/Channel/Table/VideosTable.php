@@ -3,9 +3,6 @@
 namespace App\Http\Livewire\Backend\Channel\Table;
 
 use App\Models\Channel\Video;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Relations\Relation;
-use Livewire\Component;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 

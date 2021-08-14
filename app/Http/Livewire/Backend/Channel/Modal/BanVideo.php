@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Backend\Channel\Modal;
 
 use App\Models\Channel\Video;
 use Carbon\Carbon;
-use Livewire\Component;
 use LivewireUI\Modal\ModalComponent;
 
 class BanVideo extends ModalComponent

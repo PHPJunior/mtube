@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Backend\Channel\Modal;
 
 use App\Models\Channel\Channel;
 use Carbon\Carbon;
-use Livewire\Component;
 use LivewireUI\Modal\ModalComponent;
 
 class BanChannel extends ModalComponent

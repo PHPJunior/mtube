@@ -3,9 +3,6 @@
 namespace App\Http\Livewire\Backend\Admin\Table;
 
 use App\Models\Auth\Admin;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Relations\Relation;
-use Livewire\Component;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 

@@ -5,7 +5,6 @@ namespace App\Http\Livewire\Backend\Admin\Modal;
 use App\Models\Auth\Admin;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
-use Livewire\Component;
 use LivewireUI\Modal\ModalComponent;
 
 class EditAdmin extends ModalComponent
