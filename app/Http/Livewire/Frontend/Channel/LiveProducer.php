@@ -22,7 +22,7 @@ class LiveProducer extends Component
         $this->description = $this->video->description;
         $this->start = $this->video->extra_attributes->get('go_live');
         $this->stream_key = $this->video->extra_attributes->get('stream_key');
-        $this->server_url = env('RTMP_SERVER_URL');
+        $this->server_url = config("RTMP.SERVER_URL");
     }
 
     public function startLive($value)
