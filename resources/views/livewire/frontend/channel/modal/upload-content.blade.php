@@ -36,12 +36,12 @@
     });
     uppy.use(Uppy.Url, {
         target: Uppy.Dashboard,
-        companionUrl: '{{ env('UPPY_COMPANION_URL') }}',
+        companionUrl: '{{ config('uppy.companion_url') }}',
     });
     uppy.use(Uppy.Webcam, { target: Uppy.Dashboard, onBeforeSnapshot: () => Promise.resolve(), preferredVideoMimeType: 'video/webm' });
     uppy.use(Uppy.ScreenCapture, { target: Uppy.Dashboard })
     uppy.use(Uppy.Tus, {
-        endpoint: '{{ env('APP_URL') }}/tus',
+        endpoint: '{{ config('app.url') }}/tus',
         resume: false,
         autoRetry: true,
         chunkSize: 2000000,
