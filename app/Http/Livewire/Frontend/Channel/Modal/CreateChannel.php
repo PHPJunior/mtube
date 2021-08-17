@@ -49,7 +49,7 @@ class CreateChannel extends ModalComponent
         $channel = Channel::create([
             'name' => $validated['name'],
             'slug' => $validated['slug'],
-            'active' => $this->active,
+            'active' => $this->active ?? false,
         ]);
         $channel->owner()->associate(auth()->user());
         $channel->save();
