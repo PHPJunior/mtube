@@ -21,7 +21,7 @@ class EditContent extends ModalComponent
 
     public function mount()
     {
-        $this->model = Video::find($this->video_id);
+        $this->model = Video::query()->find($this->video_id);
         $this->name = $this->model->name;
         $this->description = $this->model->description;
     }

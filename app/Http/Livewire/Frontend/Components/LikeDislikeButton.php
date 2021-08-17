@@ -28,7 +28,7 @@ class LikeDislikeButton extends Component
 
     public function getData()
     {
-        $this->video = Video::find($this->video_id);
+        $this->video = Video::query()->find($this->video_id);
     }
 
     public function likeVideo()

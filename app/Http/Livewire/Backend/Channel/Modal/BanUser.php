@@ -21,7 +21,7 @@ class BanUser extends ModalComponent
 
     public function mount()
     {
-        $this->model = User::find($this->user_id);
+        $this->model = User::query()->find($this->user_id);
     }
 
     public function render()

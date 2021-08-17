@@ -25,7 +25,7 @@ class ReplyComment extends ModalComponent
 
     public function mount()
     {
-        $this->p_comment = Comment::find($this->comment_id);
+        $this->p_comment = Comment::query()->find($this->comment_id);
     }
 
     public function render()
@@ -39,7 +39,7 @@ class ReplyComment extends ModalComponent
             'message' => 'required|string'
         ]);
 
-        $commenter = $this->owner ? Channel::find($this->commenter['id']) : auth()->user();
+        $commenter = $this->owner ? Channel::query()->find($this->commenter['id']) : auth()->user();
 
         $rc = new Comment();
         $rc->parent()->associate($this->p_comment);

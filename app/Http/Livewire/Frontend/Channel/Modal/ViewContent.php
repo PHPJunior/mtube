@@ -32,7 +32,7 @@ class ViewContent extends ModalComponent
 
     public function mount()
     {
-        $this->video = Video::find($this->video_id);
+        $this->video = Video::query()->find($this->video_id);
     }
 
     public function render()

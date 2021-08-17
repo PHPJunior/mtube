@@ -27,7 +27,7 @@ class ChannelVideo extends Component
 
     public function mount()
     {
-        $this->channel = Channel::find($this->channel_id);
+        $this->channel = Channel::query()->find($this->channel_id);
     }
 
     public function render()

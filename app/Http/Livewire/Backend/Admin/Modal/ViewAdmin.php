@@ -10,6 +10,7 @@ class ViewAdmin extends ModalComponent
     public $admin_id;
 
     public $name;
+
     public $email;
 
     public static function closeModalOnClickAway(): bool
@@ -19,7 +20,7 @@ class ViewAdmin extends ModalComponent
 
     public function mount()
     {
-        $this->model = Admin::find($this->admin_id);
+        $this->model = Admin::query()->find($this->admin_id);
         $this->name = $this->model->name;
         $this->email = $this->model->email;
     }

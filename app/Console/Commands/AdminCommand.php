@@ -43,7 +43,7 @@ class AdminCommand extends Command
         $email = $this->ask('Email Address');
         $password = $this->secret('Password');
 
-        Admin::create([
+        Admin::query()->create([
             'email' => $email,
             'name' => $name,
             'password' => Hash::make($password),

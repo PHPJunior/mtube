@@ -23,7 +23,7 @@ class DeleteComment extends ModalComponent
 
     public function submit()
     {
-        $comment = Comment::find($this->comment_id);
+        $comment = Comment::query()->find($this->comment_id);
         $comment->delete();
 
         broadcast(new DynamicChannel("{$comment->commentable->media_id}.video.comments"));

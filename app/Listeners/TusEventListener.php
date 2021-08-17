@@ -25,7 +25,7 @@ class TusEventListener
             $duration = Str::contains($file['metadata']['type'],['video/x-matroska']) ? 0 : getVideoDurationInSeconds($path);
             $filesystem = config('site.converted_file_driver');
 
-            $channel = Channel::find($file['metadata']['channel']);
+            $channel = Channel::query()->find($file['metadata']['channel']);
             $channel->videos()->create([
                 'name' => 'untitled video',
                 'media_id' => Str::random(10),

@@ -34,7 +34,7 @@ class CreateStream extends ModalComponent
         $streaming_url = "/live/{$stream_key}/index.m3u8";
         $media_id = Str::random(10);
 
-        $channel = Channel::find($this->channel_id);
+        $channel = Channel::query()->find($this->channel_id);
         $video = $channel->videos()->create([
             'name' => $this->name,
             'description' => $this->description,

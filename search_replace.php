@@ -10,7 +10,7 @@ return [
             ],
             2 => [
                 "in_array" => [
-                    'where', 'count', 'find', 'findOrNew', 'findOrFail'
+                    'where', 'count', 'find', 'findOrNew', 'create', 'findOrFail'
                 ]
             ]
         ]

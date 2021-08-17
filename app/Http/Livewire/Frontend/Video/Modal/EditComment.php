@@ -20,7 +20,7 @@ class EditComment extends ModalComponent
 
     public function mount()
     {
-        $this->comment = Comment::find($this->comment_id);
+        $this->comment = Comment::query()->find($this->comment_id);
         $this->message = $this->comment->comment;
     }
 
