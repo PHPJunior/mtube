@@ -18,7 +18,7 @@ class ChannelAnalytics extends Component
 
     public function getData()
     {
-        $this->channel = Channel::find($this->channel_id);
+        $this->channel = Channel::query()->find($this->channel_id);
         $this->count = $this->channel->subscribers()->count();
     }
 

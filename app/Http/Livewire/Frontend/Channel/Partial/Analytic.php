@@ -20,7 +20,7 @@ class Analytic extends Component
 
     public function getData()
     {
-        $this->video = Video::find($this->video_id);
+        $this->video = Video::query()->find($this->video_id);
         $this->subscribed_user_views = views($this->video)->unique()->collection('subscribed')->count();
         $this->unsubscribed_user_views = views($this->video)->unique()->collection('unsubscribed')->count();
         $this->total_views = $this->subscribed_user_views + $this->unsubscribed_user_views;

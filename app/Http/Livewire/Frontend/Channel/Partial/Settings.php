@@ -13,7 +13,7 @@ class Settings extends Component
 
     public function mount()
     {
-        $this->video = Video::find($this->video_id);
+        $this->video = Video::query()->find($this->video_id);
         $this->settings['allow_comments'] = $this->video->settings()->get('allow_comments', true);
         $this->settings['allow_download'] = $this->video->settings()->get('allow_download', true);
     }

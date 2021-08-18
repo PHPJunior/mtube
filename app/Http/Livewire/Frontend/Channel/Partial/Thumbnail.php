@@ -20,7 +20,7 @@ class Thumbnail extends Component
 
     public function mount()
     {
-        $this->video = Video::find($this->video_id);
+        $this->video = Video::query()->find($this->video_id);
 //        $this->getThumbnailsList();
     }
 

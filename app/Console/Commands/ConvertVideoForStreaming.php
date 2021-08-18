@@ -40,7 +40,7 @@ class ConvertVideoForStreaming extends Command
      */
     public function handle()
     {
-        $video = Video::find($this->argument('id'));
+        $video = Video::query()->find($this->argument('id'));
         $video->update([
             'status' => 'notready'
         ]);

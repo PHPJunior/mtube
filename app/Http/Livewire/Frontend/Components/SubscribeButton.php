@@ -26,7 +26,7 @@ class SubscribeButton extends Component
 
     public function getData()
     {
-        $this->channel = Channel::find($this->channel_id);
+        $this->channel = Channel::query()->find($this->channel_id);
         $this->subscribe = auth()->check() ? auth()->user()->hasSubscribed($this->channel) : false;
     }
 

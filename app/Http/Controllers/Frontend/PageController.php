@@ -68,7 +68,7 @@ class PageController extends Controller
     public function channel($slug, Request $request)
     {
         return view('frontend.page.channel')->with([
-            'channel' => Channel::where('slug', $slug)->firstOrFail()
+            'channel' => Channel::query()->where('slug', $slug)->firstOrFail()
         ]);
     }
 }

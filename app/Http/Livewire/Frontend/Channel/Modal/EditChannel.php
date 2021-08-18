@@ -24,7 +24,7 @@ class EditChannel extends ModalComponent
 
     public function mount()
     {
-        $this->model = Channel::find($this->channel_id);
+        $this->model = Channel::query()->find($this->channel_id);
         $this->name = $this->model->name;
         $this->slug = $this->model->slug;
         $this->active = $this->model->active;

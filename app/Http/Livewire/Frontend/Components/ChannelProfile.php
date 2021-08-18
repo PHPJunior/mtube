@@ -30,7 +30,7 @@ class ChannelProfile extends Component
 
     public function getData()
     {
-        $this->channel = Channel::find($this->channel_id);
+        $this->channel = Channel::query()->find($this->channel_id);
         $this->name = $this->channel->name;
         $this->picture = Storage::disk($this->channel->disk)->url($this->channel->profile_picture);
         $this->count = $this->channel->subscribers()->count();

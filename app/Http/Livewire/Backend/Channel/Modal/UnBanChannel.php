@@ -18,7 +18,7 @@ class UnBanChannel extends ModalComponent
 
     public function mount()
     {
-        $this->model = Channel::find($this->channel_id);
+        $this->model = Channel::query()->find($this->channel_id);
     }
 
     public function render()

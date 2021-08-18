@@ -46,7 +46,7 @@ class CreateAdmin extends ModalComponent
             'password' => ['required', 'min:8', 'same:passwordConfirmation'],
         ]);
 
-        Admin::create([
+        Admin::query()->create([
             'email' => $validated['email'],
             'name' => $validated['name'],
             'password' => Hash::make($validated['password']),
