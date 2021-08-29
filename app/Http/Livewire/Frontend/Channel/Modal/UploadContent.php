@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Frontend\Channel\Modal;
 
-use Livewire\Component;
 use LivewireUI\Modal\ModalComponent;
 
 class UploadContent extends ModalComponent

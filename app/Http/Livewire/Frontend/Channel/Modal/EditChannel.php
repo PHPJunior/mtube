@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Frontend\Channel\Modal;
 
 use App\Models\Channel\Channel;
 use Illuminate\Support\Str;
-use Livewire\Component;
 use LivewireUI\Modal\ModalComponent;
 
 class EditChannel extends ModalComponent

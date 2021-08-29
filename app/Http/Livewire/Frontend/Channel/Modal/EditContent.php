@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Frontend\Channel\Modal;
 
 use App\Models\Channel\Video;
-use Livewire\Component;
 use LivewireUI\Modal\ModalComponent;
 
 class EditContent extends ModalComponent
