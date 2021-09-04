@@ -3,11 +3,7 @@
 namespace App\Http\Livewire\Frontend\Channel\Modal;
 
 use App\Models\Channel\Video;
-use Illuminate\Support\Facades\Storage;
-use Intervention\Image\Facades\Image;
-use Livewire\Component;
 use LivewireUI\Modal\ModalComponent;
-use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
 
 class ViewContent extends ModalComponent
 {

@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Frontend\Channel\Modal;
 
 use App\Models\Channel\Channel;
 use Illuminate\Support\Str;
-use Livewire\Component;
 use Livewire\WithFileUploads;
 use LivewireUI\Modal\ModalComponent;
 

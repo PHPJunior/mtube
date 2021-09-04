@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Frontend\Components;
 
-use Illuminate\Notifications\Events\BroadcastNotificationCreated;
 use Livewire\Component;
 use Livewire\WithPagination;
 
