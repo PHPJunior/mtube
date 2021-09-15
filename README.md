@@ -32,7 +32,12 @@ composer install
 ```
 
 Edit `.env` file and `config/site.php`
+
+
+Assuming your app is served from `http://mtube.test` virtual host, then:
 ``` 
+APP_URL=mtube.test
+
 PUSHER_APP_ID=
 PUSHER_APP_KEY=
 PUSHER_APP_SECRET=
@@ -48,9 +53,19 @@ LARAVEL_WEBSOCKETS_SSL_PASSPHRASE=
 FFMPEG_BINARIES=
 FFPROBE_BINARIES=
 
-RTMP_HOST=http://localhost:3000
-UPPY_COMPANION_URL=http://localhost:3020/companion
-RTMP_SERVER_URL=rtmp://localhost/live
+RTMP_HOST=http://mtube.test:3000
+UPPY_COMPANION_URL=http://mtube.test:3020/companion
+RTMP_SERVER_URL=rtmp://mtube.test/live
+```
+
+You also have to set the host value in `uppy/server.js`
+
+```
+server: {
+        host: 'mtube.test:3020',
+        protocol: 'https',
+        path: '/companion',
+    },
 ```
 
 ``` 
