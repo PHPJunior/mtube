@@ -29,6 +29,7 @@ mTube is a simple video sharing platform built with Laravel. Create personal cha
 ## Installations
 ```
 composer install
+npm install
 ```
 
 Edit `.env` file and `config/site.php`
@@ -78,6 +79,9 @@ server: {
 Start Laravel Websockets Server, RTMP Server, Uppy Companion Server
 
 ```
+php artisan key:generate
+php artisan storage:link
+
 php artisan websockets:serve
 php artisan queue:work
 
