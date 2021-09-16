@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Symfony\Component\Process\Process;
+use Illuminate\Support\Facades\Artisan;
 
 class StartConvert implements ShouldQueue
 {
@@ -32,8 +32,6 @@ class StartConvert implements ShouldQueue
      */
     public function handle()
     {
-        $process = new Process(['php', 'artisan', 'convert:hls', $this->id], base_path());
-        $process->setTimeout(7200);
-        $process->start();
+        Artisan::call('convert:hls', ['id' => $this->id]);
     }
 }
