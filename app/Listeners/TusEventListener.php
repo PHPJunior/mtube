@@ -3,10 +3,7 @@
 namespace App\Listeners;
 
 use App\Models\Channel\Channel;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class TusEventListener
@@ -19,7 +16,8 @@ class TusEventListener
         try {
             $file = $event->getFile()->details();
 
-            $path = last(explode('/storage/app/public/', $file['file_path']));
+            $file_path = str_replace('\\', '/', $file['file_path']);
+            $path = last(explode('/storage/app/public/', $file_path));
             $tus = last(explode('/tus/', $file['location']));
 
             $duration = Str::contains($file['metadata']['type'],['video/x-matroska']) ? 0 : getVideoDurationInSeconds($path);
