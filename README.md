@@ -70,6 +70,12 @@ npm run rtmp-server
 npm run companion-server
 ```
 
+Or you can use Porter to start all servers at once.
+Before you start Porter, make sure you have installed Porter. ( [Porter](https://github.com/anystack-sh/porter) )
+```
+porter start	 
+```
+
 ## Create Admin User
 ```
 php artisan create:admin

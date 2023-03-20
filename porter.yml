@@ -1,0 +1,12 @@
+services:
+  - name: Websockets Server
+    command: php artisan websockets:serve
+
+  - name: Queue
+    command: php artisan queue:work --tries=3
+
+  - name: RTMP Server
+    command: npm run rtmp-server
+
+  - name: Uppy Companion Server
+    command: npm run companion-server
